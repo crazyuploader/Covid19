@@ -36,45 +36,52 @@ public class MainActivity extends AppCompatActivity {
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-                buttonFetch.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+        editInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                editInput.setHint("");
+            }
+        });
 
-                        String Input = editInput.getText().toString();
+        buttonFetch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                        String url = baseURL + Input;
+                String Input = editInput.getText().toString();
 
-                        final StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                                new Response.Listener<String>() {
-                                    @Override
-                                    public void onResponse(String response) {
-                                        try {
-                                            JSONObject reader = new JSONObject(response);
-                                            country = reader.getString("country");
-                                            cases = reader.getInt("cases");
-                                            todayCases = reader.getInt("todayCases");
-                                            deaths = reader.getInt("deaths");
-                                            todayDeaths = reader.getInt("todayDeaths");
-                                            recovered = reader.getInt("recovered");
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
-                                        tvFetched.setText("Country: " + country + "\n"
-                                                + "Total Cases: " + cases + "\n"
-                                                + "Today Cases: " + todayCases + "\n"
-                                                + "Total Deaths: " + deaths + "\n"
-                                                + "Today Deaths: " + todayDeaths + "\n"
-                                                + "Recovered: " + recovered);
-                                    }
-                                }, new Response.ErrorListener() {
+                String url = baseURL + Input;
+
+                final StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
                             @Override
-                            public void onErrorResponse(VolleyError error) {
-                                tvFetched.setText("That didn't work!");
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject reader = new JSONObject(response);
+                                    country = reader.getString("country");
+                                    cases = reader.getInt("cases");
+                                    todayCases = reader.getInt("todayCases");
+                                    deaths = reader.getInt("deaths");
+                                    todayDeaths = reader.getInt("todayDeaths");
+                                    recovered = reader.getInt("recovered");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                tvFetched.setText("Country: " + country + "\n"
+                                        + "Total Cases: " + cases + "\n"
+                                        + "Today Cases: " + todayCases + "\n"
+                                        + "Total Deaths: " + deaths + "\n"
+                                        + "Today Deaths: " + todayDeaths + "\n"
+                                        + "Recovered: " + recovered);
                             }
-                        });
-                        requestQueue.add(stringRequest);
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        tvFetched.setText("That didn't work!");
                     }
                 });
+                requestQueue.add(stringRequest);
+            }
+        });
 
     }
 }
