@@ -6,8 +6,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity" android:background="#212121">
+        tools:context=".MainActivity">
 
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editInput"
+            android:textColor="#212121"
+            android:textColorHint="#5ED563"
+            android:hint="@string/editHint"
+            android:importantForAutofill="no"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp" android:textSize="18sp"/>
     <Button
             android:text="@string/fetch_data"
             android:layout_width="match_parent"
@@ -17,7 +32,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:layout_weight="2"
-            android:background="@drawable/roundedbutton"/>
+            android:background="@drawable/roundedbutton" android:textColor="#FFFFFF"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -26,18 +41,18 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:hint="@string/tvHint"
-            android:textColor="#FFFFFF"
+            android:textColor="#212121"
             android:gravity="center_horizontal"
             android:textSize="30sp"
-            android:layout_weight="15"
-            android:textColorHint="#FFFFFF"/>
+            android:layout_weight="18"
+            android:textColorHint="#212121"/>
     <TextView
             android:text="@string/tvFetched"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/tvFooter"
-            android:textColor="#FFFFFF"
+            android:textColor="#212121"
             android:gravity="center_horizontal|center_vertical"
             android:textSize="18sp"/>
 </LinearLayout>

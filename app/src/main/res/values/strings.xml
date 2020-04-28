@@ -2,5 +2,6 @@
     <string name="app_name">Covid 19</string>
     <string name="fetch_data">Fetch Data</string>
     <string name="tvHint">Your fetched data will appear here</string>
+    <string name="editHint">Please enter country name</string>
     <string name="tvFetched">Made by Jugal -- 2020</string>
 </resources>
