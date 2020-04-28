@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Button buttonFetch;
     TextView tvFetched;
     String baseURL = "https://corona.lmao.ninja/v2/countries/";
-    String userInput, country;
+    String allURL = "https://corona.lmao.ninja/v2/all";
+    String country;
     EditText editInput;
     int cases, todayCases, deaths, todayDeaths, recovered;
 
@@ -35,6 +36,37 @@ public class MainActivity extends AppCompatActivity {
         editInput = findViewById(R.id.editInput);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, allURL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    country = "All";
+                    cases = object.getInt("cases");
+                    todayCases = object.getInt("todayCases");
+                    deaths = object.getInt("deaths");
+                    todayDeaths = object.getInt("todayDeaths");
+                    recovered = object.getInt("recovered");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                tvFetched.setText("Region: " + country + "\n"
+                        + "Total Cases: " + cases + "\n"
+                        + "Today Cases: " + todayCases + "\n"
+                        + "Total Deaths: " + deaths + "\n"
+                        + "Today Deaths: " + todayDeaths + "\n"
+                        + "Recovered: " + recovered);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                tvFetched.setText("That didn't work!\nKindly check your internet connection");
+            }
+        });
+
+        requestQueue.add(stringRequest);
 
         editInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
