@@ -51,35 +51,42 @@ public class MainActivity extends AppCompatActivity {
 
                 String url = baseURL + Input;
 
-                final StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONObject reader = new JSONObject(response);
-                                    country = reader.getString("country");
-                                    cases = reader.getInt("cases");
-                                    todayCases = reader.getInt("todayCases");
-                                    deaths = reader.getInt("deaths");
-                                    todayDeaths = reader.getInt("todayDeaths");
-                                    recovered = reader.getInt("recovered");
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                if (Input.length() != 0)
+                {
+                    final StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        JSONObject reader = new JSONObject(response);
+                                        country = reader.getString("country");
+                                        cases = reader.getInt("cases");
+                                        todayCases = reader.getInt("todayCases");
+                                        deaths = reader.getInt("deaths");
+                                        todayDeaths = reader.getInt("todayDeaths");
+                                        recovered = reader.getInt("recovered");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    tvFetched.setText("Country: " + country + "\n"
+                                            + "Total Cases: " + cases + "\n"
+                                            + "Today Cases: " + todayCases + "\n"
+                                            + "Total Deaths: " + deaths + "\n"
+                                            + "Today Deaths: " + todayDeaths + "\n"
+                                            + "Recovered: " + recovered);
                                 }
-                                tvFetched.setText("Country: " + country + "\n"
-                                        + "Total Cases: " + cases + "\n"
-                                        + "Today Cases: " + todayCases + "\n"
-                                        + "Total Deaths: " + deaths + "\n"
-                                        + "Today Deaths: " + todayDeaths + "\n"
-                                        + "Recovered: " + recovered);
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        tvFetched.setText("That didn't work!");
-                    }
-                });
-                requestQueue.add(stringRequest);
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            tvFetched.setText("That didn't work!");
+                        }
+                    });
+                    requestQueue.add(stringRequest);
+                }
+                else
+                {
+                    tvFetched.setText("Please enter something!");
+                }
             }
         });
 

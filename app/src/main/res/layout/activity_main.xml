@@ -16,7 +16,7 @@
             android:ems="10"
             android:id="@+id/editInput"
             android:textColor="#212121"
-            android:textColorHint="#5ED563"
+            android:textColorHint="#FF9800"
             android:hint="@string/editHint"
             android:importantForAutofill="no"
             android:gravity="center_horizontal|center_vertical"
