@@ -8,8 +8,8 @@ android {
         applicationId "com.example.covid19"
         minSdkVersion 27
         targetSdkVersion 29
-        versionCode 10
-        versionName "0.1.3"
+        versionCode 15
+        versionName "0.1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

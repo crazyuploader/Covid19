@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etCountry;
     Button btnFetch;
     TextView tvFetched;
-    String baseURL = "https://corona.lmao.ninja/v2/countries/";
+    final String baseURL = "https://corona.lmao.ninja/v2/countries/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,41 +40,52 @@ public class MainActivity extends AppCompatActivity {
         });
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final Toast if_fetch_error = Toast.makeText(this, "Opps, anomalies detected, WIP bye!", Toast.LENGTH_LONG);
+        final Toast if_input_empty = Toast.makeText(this, "Please enter something as country name can't be empty, please try again!", Toast.LENGTH_LONG);
 
         btnFetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etCountry.setVisibility(View.GONE);
-                btnFetch.setVisibility(View.GONE);
 
                 String input = etCountry.getText().toString().trim();
-                String fetchURL = baseURL + input;
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, fetchURL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            tvFetched.setText("Country: " + jsonObject.getString("country") + "\n\n"
-                                            + "Cases Today: " + jsonObject.getString("todayCases") + "\n\n"
-                                            + "Total Cases: " + jsonObject.getString("cases") + "\n\n"
-                                            + "Deaths Today: " + jsonObject.getString("todayDeaths") + "\n\n"
-                                            + "Total Deaths: " + jsonObject.getString("deaths") + "\n\n"
-                                            + "Recovered: " + jsonObject.getString("recovered") + "\n\n"
-                                            + "Tests: " + jsonObject.getString("tests"));
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                if (input.length() != 0)
+                {
+                    etCountry.setVisibility(View.GONE);
+                    btnFetch.setVisibility(View.GONE);
+                    String fetchURL = baseURL + input;
+                    StringRequest stringRequest = new StringRequest(Request.Method.GET, fetchURL, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                tvFetched.setText("Country: " + jsonObject.getString("country") + "\n\n"
+                                        + "Cases Today: " + jsonObject.getString("todayCases") + "\n\n"
+                                        + "Total Cases: " + jsonObject.getString("cases") + "\n\n"
+                                        + "Deaths Today: " + jsonObject.getString("todayDeaths") + "\n\n"
+                                        + "Total Deaths: " + jsonObject.getString("deaths") + "\n\n"
+                                        + "Recovered: " + jsonObject.getString("recovered") + "\n\n"
+                                        + "Tests: " + jsonObject.getString("tests"));
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
                         }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            if_fetch_error.show();
 
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+                        }
+                    });
 
-                    }
-                });
-
-                requestQueue.add(stringRequest);
+                    requestQueue.add(stringRequest);
+                }
+                else
+                {
+                    if_input_empty.show();
+                }
             }
         });
 
