@@ -8,14 +8,18 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText etCountry;
     Button btnFetch;
-    TextView tvCountry, tvCases, tvTotalCases, tvDeaths, tvTotalDeaths;
+    TextView tvFetched;
     String baseURL = "https://corona.lmao.ninja/v2/countries/";
 
     @Override
@@ -25,11 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         etCountry = findViewById(R.id.etCountry);
         btnFetch = findViewById(R.id.btnFetch);
-        tvCountry = findViewById(R.id.tvCountry);
-        tvCases = findViewById(R.id.tvCases);
-        tvTotalCases = findViewById(R.id.tvTotalCases);
-        tvDeaths = findViewById(R.id.tvDeaths);
-        tvTotalDeaths = findViewById(R.id.tvTotalCases);
+        tvFetched = findViewById(R.id.tvFetched);
 
         etCountry.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -38,13 +38,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         btnFetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 etCountry.setVisibility(View.GONE);
                 btnFetch.setVisibility(View.GONE);
+
+                String input = etCountry.getText().toString().trim();
+                String fetchURL = baseURL + input;
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, fetchURL, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            tvFetched.setText("Country: " + jsonObject.getString("country") + "\n\n"
+                                            + "Cases Today: " + jsonObject.getString("todayCases") + "\n\n"
+                                            + "Total Cases: " + jsonObject.getString("cases") + "\n\n"
+                                            + "Deaths Today: " + jsonObject.getString("todayDeaths") + "\n\n"
+                                            + "Total Deaths: " + jsonObject.getString("deaths") + "\n\n"
+                                            + "Recovered: " + jsonObject.getString("recovered") + "\n\n"
+                                            + "Tests: " + jsonObject.getString("tests"));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                requestQueue.add(stringRequest);
             }
         });
 

@@ -45,28 +45,13 @@
                 android:layout_marginTop="15dp" android:layout_marginRight="15dp"/>
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/tvCountry" android:textSize="36sp"
+                android:layout_height="wrap_content" android:id="@+id/tvFetched" android:textSize="36sp"
                 android:textColor="#FFFFFF" android:layout_marginTop="30dp" android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp" android:layout_marginBottom="15dp"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/tvCases" android:textSize="36sp"
-                android:textColor="#FFFFFF" android:layout_marginTop="15dp" android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp" android:layout_marginBottom="15dp"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/tvTotalCases" android:textSize="36sp"
-                android:textColor="#FFFFFF" android:layout_marginTop="15dp" android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp" android:layout_marginBottom="15dp"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/tvDeaths" android:textSize="36sp"
-                android:textColor="#FFFFFF" android:layout_marginTop="15dp" android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp" android:layout_marginBottom="15dp"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/tvTotalDeaths" android:textSize="36sp"
-                android:textColor="#FFFFFF" android:layout_marginTop="15dp" android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp" android:layout_marginBottom="15dp"/>
     </LinearLayout>
+    <TextView
+            android:text="@string/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/tvFooter" android:textSize="36sp"
+            android:fontFamily="@font/billabong" android:textColor="#FFFFFF" android:gravity="center_horizontal"/>
 </LinearLayout>
