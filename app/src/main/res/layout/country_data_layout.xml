@@ -17,8 +17,7 @@
         <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="3"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -26,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:padding="2dp"
                     android:textStyle="bold"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:text="@string/country"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -43,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:layout_marginTop="5dp"
                     android:id="@+id/countryCases"
                     android:fontFamily="sans-serif"/>
@@ -56,16 +55,27 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/countryDeaths"
+                    android:fontFamily="sans-serif"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:padding="2dp"
+                    android:textStyle="bold"
+                    android:text="@string/recovered"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="22sp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:id="@+id/countryDeaths" android:fontFamily="sans-serif"/>
+                    android:fontFamily="sans-serif"/>
 
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="8"
+                android:layout_width="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_height="wrap_content"
@@ -74,12 +84,13 @@
             <TextView
                     android:layout_width="match_parent"
                     android:padding="2dp"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
                     android:id="@+id/countryName"
+                    android:textColor="#212121"
                     android:textAllCaps="true"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"/>
@@ -90,8 +101,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:layout_marginTop="5dp"
+                    android:textColor="#673AB7"
                     android:id="@+id/countryTotalCases"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal"/>
@@ -102,12 +114,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:layout_marginTop="5dp"
                     android:textColor="#F44336"
-                    android:layout_marginBottom="5dp"
                     android:id="@+id/countryTotalDeaths"
                     android:fontFamily="sans-serif"
+                    android:textStyle="normal"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:padding="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="22sp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/countryRecovered"
+                    android:textColor="#159159"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginBottom="5dp"
                     android:textStyle="normal"/>
         </LinearLayout>
     </LinearLayout>

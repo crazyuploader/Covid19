@@ -1,6 +1,5 @@
 package com.example.covid19;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
 
-    private Context context;
-    private Data[] fetched;
-    public DataAdapter(Context context, Data[] data)
+    private final Data[] fetched;
+    public DataAdapter(Data[] data)
     {
-        this.context = context;
         this.fetched = data;
     }
 
@@ -32,6 +29,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         holder.countryName.setText(country.getCountry());
         holder.countryTotalCases.setText(country.getCases().toString());
         holder.countryTotalDeaths.setText(country.getDeaths().toString());
+        holder.countryRecovered.setText(country.getRecovered().toString());
         //Glide.with(holder.countryFlag.getContext()).load(country.getCountryInfo().getFlag()).into(holder.countryFlag);
     }
 
@@ -40,16 +38,18 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         return fetched.length;
     }
 
-    public class DataViewHolder extends RecyclerView.ViewHolder {
+    public static class DataViewHolder extends RecyclerView.ViewHolder {
         TextView countryName;
         TextView countryTotalCases;
         TextView countryTotalDeaths;
+        TextView countryRecovered;
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
 
             countryName = itemView.findViewById(R.id.countryName);
             countryTotalCases = itemView.findViewById(R.id.countryTotalCases);
             countryTotalDeaths = itemView.findViewById(R.id.countryTotalDeaths);
+            countryRecovered = itemView.findViewById(R.id.countryRecovered);
 
         }
     }

@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 Gson gson = gsonBuilder.create();
                 Data[] data = gson.fromJson(response, Data[].class);
-                countryView.setAdapter(new DataAdapter(MainActivity.this, data));
+                countryView.setAdapter(new DataAdapter(data));
             }
         }, new Response.ErrorListener() {
             @Override
