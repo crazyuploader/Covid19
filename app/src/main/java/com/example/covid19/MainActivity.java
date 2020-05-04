@@ -1,93 +1,82 @@
 package com.example.covid19;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etCountry;
-    Button btnFetch;
-    TextView tvFetched;
-    final String baseURL = "https://corona.lmao.ninja/v2/countries/";
+    RecyclerView countryView;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.menuRefresh:
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.menuSearch:
+                Toast.makeText(this, "Uh-Huh, WIP!", Toast.LENGTH_LONG).show();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    final String baseURL = "https://corona.lmao.ninja/v2/countries";
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etCountry = findViewById(R.id.etCountry);
-        btnFetch = findViewById(R.id.btnFetch);
-        tvFetched = findViewById(R.id.tvFetched);
-
-        etCountry.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                etCountry.setHint("");
-            }
-        });
+        countryView = findViewById(R.id.countryView);
+        countryView.setLayoutManager(new LinearLayoutManager(this));
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         final Toast if_fetch_error = Toast.makeText(this, "Opps, anomalies detected, WIP bye!", Toast.LENGTH_LONG);
         final Toast if_input_empty = Toast.makeText(this, "Please enter something as country name can't be empty, please try again!", Toast.LENGTH_LONG);
 
-        btnFetch.setOnClickListener(new View.OnClickListener() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, baseURL, new Response.Listener<String>() {
             @Override
-            public void onClick(View v) {
-
-                String input = etCountry.getText().toString().trim();
-
-                if (input.length() != 0)
-                {
-                    etCountry.setVisibility(View.GONE);
-                    btnFetch.setVisibility(View.GONE);
-                    String fetchURL = baseURL + input;
-                    StringRequest stringRequest = new StringRequest(Request.Method.GET, fetchURL, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                tvFetched.setText("Country: " + jsonObject.getString("country") + "\n\n"
-                                        + "Cases Today: " + jsonObject.getString("todayCases") + "\n\n"
-                                        + "Total Cases: " + jsonObject.getString("cases") + "\n\n"
-                                        + "Deaths Today: " + jsonObject.getString("todayDeaths") + "\n\n"
-                                        + "Total Deaths: " + jsonObject.getString("deaths") + "\n\n"
-                                        + "Recovered: " + jsonObject.getString("recovered") + "\n\n"
-                                        + "Tests: " + jsonObject.getString("tests"));
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            if_fetch_error.show();
-
-                        }
-                    });
-
-                    requestQueue.add(stringRequest);
-                }
-                else
-                {
-                    if_input_empty.show();
-                }
+            public void onResponse(String response) {
+                GsonBuilder gsonBuilder = new GsonBuilder();
+                Gson gson = gsonBuilder.create();
+                Data[] data = gson.fromJson(response, Data[].class);
+                countryView.setAdapter(new DataAdapter(MainActivity.this, data));
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if_fetch_error.show();
             }
         });
 
+        requestQueue.add(stringRequest);
     }
 }
