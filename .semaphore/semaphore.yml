@@ -1,0 +1,16 @@
+version: v1.0
+name: Android
+agent:
+  machine:
+    type: e1-standard-2
+  containers:
+    - name: main
+      image: crazyuploader/android_sdk:latest
+blocks:
+  - name: Gradle
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - ./gradlew build
