@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Covid 19</string>
-    <string name="tvFooter">Made by Jugal</string>
-    <string name="fetch">Fetch</string>
-    <string name="enter_country_name">Enter Country Name</string>
     <string name="warning">Stay home, Stay safe.</string>
     <string name="footer">Made by Jugal</string>
 </resources>
