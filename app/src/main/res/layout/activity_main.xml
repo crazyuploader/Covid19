@@ -6,7 +6,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity"
-        android:background="@drawable/bgcolor"
         android:id="@+id/LinearLayout">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -23,7 +22,7 @@
             android:textSize="36sp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/billabong"
-            android:textColor="#FFFFFF"
+            android:textColor="#FF5252"
             android:layout_weight="1"
             android:gravity="center_horizontal"/>
 </LinearLayout>
