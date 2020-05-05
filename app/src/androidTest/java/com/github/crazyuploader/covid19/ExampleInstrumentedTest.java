@@ -1,4 +1,4 @@
-package com.example.covid19;
+package com.github.crazyuploader.covid19;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

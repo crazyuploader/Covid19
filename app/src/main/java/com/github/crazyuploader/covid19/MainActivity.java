@@ -1,4 +1,4 @@
-package com.example.covid19;
+package com.github.crazyuploader.covid19;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crazyuploader.covid19.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
