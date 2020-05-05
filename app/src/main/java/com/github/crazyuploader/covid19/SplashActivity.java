@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.ui.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

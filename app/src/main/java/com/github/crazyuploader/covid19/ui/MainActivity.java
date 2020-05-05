@@ -1,4 +1,4 @@
-package com.github.crazyuploader.covid19;
+package com.github.crazyuploader.covid19.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.data.Data;
+import com.github.crazyuploader.covid19.data.DataAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    final String baseURL = "https://corona.lmao.ninja/v2/countries";
+    final String baseURL = "https://corona.lmao.ninja/v2/countries?sort=cases";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

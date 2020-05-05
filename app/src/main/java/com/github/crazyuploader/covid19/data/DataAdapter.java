@@ -1,10 +1,9 @@
-package com.github.crazyuploader.covid19;
+package com.github.crazyuploader.covid19.data;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.crazyuploader.covid19.R;
