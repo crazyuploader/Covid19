@@ -20,6 +20,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.country_data_layout, parent, false);
+        view.setBackgroundColor(R.color.colorPrimaryDark);
         return new DataViewHolder(view);
     }
 
