@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ import com.google.gson.GsonBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
+    ProgressBar progressBar;
     RecyclerView countryView;
 
     @Override
@@ -57,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
         countryView = findViewById(R.id.countryView);
         countryView.setLayoutManager(new LinearLayoutManager(this));
+        progressBar = findViewById(R.id.progressbar);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final Toast if_fetch_error = Toast.makeText(this, "Opps, anomalies detected, WIP bye!", Toast.LENGTH_LONG);
-        final Toast if_input_empty = Toast.makeText(this, "Please enter something as country name can't be empty, please try again!", Toast.LENGTH_LONG);
+        final Toast if_fetch_error = Toast.makeText(this, R.string.network_issue, Toast.LENGTH_LONG);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, baseURL, new Response.Listener<String>() {
             @Override
@@ -69,11 +72,13 @@ public class MainActivity extends AppCompatActivity {
                 Gson gson = gsonBuilder.create();
                 Data[] data = gson.fromJson(response, Data[].class);
                 countryView.setAdapter(new DataAdapter(data));
+                progressBar.setVisibility(View.GONE);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 if_fetch_error.show();
+                progressBar.setVisibility(View.GONE);
             }
         });
 
