@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.crazyuploader.covid19.R;
@@ -21,7 +22,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.country_data_layout, parent, false);
-        view.setBackgroundColor(R.color.colorPrimaryDark);
+        view.setBackgroundColor(0);
         return new DataViewHolder(view);
     }
 
