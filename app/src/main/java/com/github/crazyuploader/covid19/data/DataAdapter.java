@@ -32,6 +32,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         holder.countryTotalCases.setText(country.getCases().toString());
         holder.countryTotalDeaths.setText(country.getDeaths().toString());
         holder.countryRecovered.setText(country.getRecovered().toString());
+        holder.countryTodayCases.setText("(+" + country.getTodayCases().toString()+ ")");
+        holder.countryTodayDeaths.setText("(+" + country.getTodayDeaths().toString()+ ")");
         //Glide.with(holder.countryFlag.getContext()).load(country.getCountryInfo().getFlag()).into(holder.countryFlag);
     }
 
@@ -41,10 +43,12 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     }
 
     public static class DataViewHolder extends RecyclerView.ViewHolder {
-        TextView countryName;
-        TextView countryTotalCases;
-        TextView countryTotalDeaths;
-        TextView countryRecovered;
+        final TextView countryName;
+        final TextView countryTotalCases;
+        final TextView countryTotalDeaths;
+        final TextView countryRecovered;
+        final TextView countryTodayCases;
+        final TextView countryTodayDeaths;
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -52,6 +56,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
             countryTotalCases = itemView.findViewById(R.id.countryTotalCases);
             countryTotalDeaths = itemView.findViewById(R.id.countryTotalDeaths);
             countryRecovered = itemView.findViewById(R.id.countryRecovered);
+            countryTodayCases = itemView.findViewById(R.id.countryTodayCases);
+            countryTodayDeaths = itemView.findViewById(R.id.countryTodayDeaths);
 
         }
     }
