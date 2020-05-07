@@ -32,8 +32,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         holder.countryTotalCases.setText(country.getCases().toString());
         holder.countryTotalDeaths.setText(country.getDeaths().toString());
         holder.countryRecovered.setText(country.getRecovered().toString());
-        holder.countryTodayCases.setText("(+" + country.getTodayCases().toString()+ ")");
-        holder.countryTodayDeaths.setText("(+" + country.getTodayDeaths().toString()+ ")");
+        holder.countryTodayCases.setText("(+" + country.getTodayCases().toString()+ " new)");
+        holder.countryTodayDeaths.setText("(+" + country.getTodayDeaths().toString()+ " new)");
         //Glide.with(holder.countryFlag.getContext()).load(country.getCountryInfo().getFlag()).into(holder.countryFlag);
     }
 

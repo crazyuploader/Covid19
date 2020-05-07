@@ -81,17 +81,18 @@
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
             <TextView
                     android:layout_width="match_parent"
                     android:padding="2dp"
                     android:textSize="22sp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
@@ -101,75 +102,83 @@
                     android:textStyle="normal"/>
 
             <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:baselineAligned="true" android:layout_marginEnd="5dp" android:layout_marginTop="5dp">
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:padding="2dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textSize="22sp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#536DFE"
-                        android:id="@+id/countryTotalCases"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="normal"/>
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                <TextView
-                        android:layout_width="match_parent"
-                        android:padding="2dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textSize="22sp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#304FFE"
-                        android:id="@+id/countryTodayCases"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="normal"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:padding="2dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textSize="22sp"
+                            android:textColor="#536DFE"
+                            android:id="@+id/countryTotalCases"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"/>
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:padding="2dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textSize="22sp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#F85753"
+                            android:id="@+id/countryTotalDeaths"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:padding="2dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textSize="22sp"
+                            android:textColor="#304FFE"
+                            android:id="@+id/countryTodayCases"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:padding="2dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textSize="22sp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#E53935"
+                            android:id="@+id/countryTodayDeaths"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:padding="2dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textSize="22sp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#F85753"
-                        android:id="@+id/countryTotalDeaths"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="normal"/>
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:padding="2dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textSize="22sp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="#E53935"
-                        android:id="@+id/countryTodayDeaths"
-                        android:fontFamily="sans-serif"
-                        android:textStyle="normal"/>
-
-            </LinearLayout>
 
             <TextView
                     android:layout_width="match_parent"
                     android:padding="2dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:textSize="22sp"
