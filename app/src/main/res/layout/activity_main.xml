@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/progressbar"
-                android:indeterminateTint="#FFFFFF"/>
+                android:indeterminateTint="#2E2E2E"/>
 
     </LinearLayout>
 
@@ -36,5 +36,8 @@
             android:fontFamily="@font/billabong"
             android:textColor="#6200EA"
             android:layout_weight="1"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/footer_main"/>
 </LinearLayout>

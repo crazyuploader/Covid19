@@ -1,11 +1,13 @@
 package com.github.crazyuploader.covid19.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     RecyclerView countryView;
+    TextView footer;
+    final String githubURL = "https://crazyuploader.github.io/";
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.menuSearch:
-                Toast.makeText(this, "Uh-Huh, WIP!", Toast.LENGTH_LONG).show();
+                Custom_Toast.show(this, "Uh-Huh, WIP!", 1);
                 break;
         }
 
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         countryView = findViewById(R.id.countryView);
         countryView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = findViewById(R.id.progressbar);
+        footer = findViewById(R.id.footer_main);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         final Toast if_fetch_error = Toast.makeText(this, R.string.network_issue, Toast.LENGTH_LONG);
@@ -86,5 +91,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         requestQueue.add(stringRequest);
+
+        footer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(githubURL));
+                startActivity(browserIntent);
+                Custom_Toast.show(MainActivity.this, "Following me around?", 0);
+            }
+        });
     }
 }
