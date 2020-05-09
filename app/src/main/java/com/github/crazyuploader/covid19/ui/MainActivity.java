@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    final String baseURL = "https://corona.lmao.ninja/v2/countries?sort=cases";
+    final String baseURL = "https://disease.sh/v2/countries?sort=cases";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
