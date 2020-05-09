@@ -35,13 +35,10 @@ public class MainActivity extends AppCompatActivity implements DataAdapter.onCou
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId())
-        {
-            case R.id.menuRefresh:
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-                break;
+        if (item.getItemId() == R.id.menuRefresh) {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
 
             /*case R.id.menuSearch:
                 Custom_Toast.show(this, "Uh-Huh, WIP!", 1);
@@ -105,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements DataAdapter.onCou
 
     @Override
     public void onCountryClick(CharSequence countryName) {
-        Custom_Toast.show(this, (String) countryName, 0);
         Intent intent = new Intent(this, CountryDetails.class);
         intent.putExtra("Country", countryName);
         startActivity(intent);

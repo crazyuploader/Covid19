@@ -49,6 +49,11 @@ public class CountryDetails extends AppCompatActivity {
 
         countryToFetch = countryDataLink + countryName;
 
+        updateUI();
+
+    }
+
+    public void updateUI(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, countryToFetch, new Response.Listener<String>() {
@@ -84,6 +89,6 @@ public class CountryDetails extends AppCompatActivity {
         });
 
         requestQueue.add(stringRequest);
+    };
 
-    }
 }
