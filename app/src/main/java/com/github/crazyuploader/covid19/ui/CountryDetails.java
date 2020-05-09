@@ -13,15 +13,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.data.Data;
 import com.github.crazyuploader.covid19.data.Format;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class CountryDetails extends AppCompatActivity {
 
     ImageView countryFlag;
     TextView tvcountryName, countryTotalCases, countryTotalDeaths, countryTodayCases, countryTodayDeaths, countryRecovered;
     TextView countryActiveCases, countryCriticalCases, countryCasesPerMillion, countryDeathsPerMillion, countryTests, countryTestsPerMillion;
+    Data fetched;
     TextView tvLastUpdated;
     String countryName, countryToFetch;
     long lastUpdated;
@@ -64,27 +66,23 @@ public class CountryDetails extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONObject countryInfo = jsonObject.getJSONObject("countryInfo");
-                    Glide.with(CountryDetails.this).load(countryInfo.getString("flag")).into(countryFlag);
-                    countryTotalCases.setText(jsonObject.getString("cases"));
-                    countryTodayCases.setText(jsonObject.getString("todayCases"));
-                    countryTotalDeaths.setText(jsonObject.getString("deaths"));
-                    countryTodayDeaths.setText(jsonObject.getString("todayDeaths"));
-                    countryRecovered.setText(jsonObject.getString("recovered"));
-                    countryActiveCases.setText(jsonObject.getString("active"));
-                    countryCriticalCases.setText(jsonObject.getString("critical"));
-                    countryCasesPerMillion.setText(jsonObject.getString("casesPerOneMillion"));
-                    countryDeathsPerMillion.setText(jsonObject.getString("deathsPerOneMillion"));
-                    countryTests.setText(jsonObject.getString("tests"));
-                    countryTestsPerMillion.setText(jsonObject.getString("testsPerOneMillion"));
-                    lastUpdated = jsonObject.getLong("updated");
-                    tvLastUpdated.setText(Format.date(lastUpdated));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                GsonBuilder gsonBuilder = new GsonBuilder();
+                Gson gson = gsonBuilder.create();
+                fetched = gson.fromJson(response, Data.class);
+                Glide.with(CountryDetails.this).load(fetched.getCountryInfo().getFlag()).into(countryFlag);
+                countryTotalCases.setText(Format.number(fetched.getCases()));
+                countryTodayCases.setText(Format.number(fetched.getTodayCases()));
+                countryTotalDeaths.setText(Format.number(fetched.getDeaths()));
+                countryTodayDeaths.setText(Format.number(fetched.getTodayDeaths()));
+                countryRecovered.setText(Format.number(fetched.getRecovered()));
+                countryActiveCases.setText(Format.number(fetched.getActive()));
+                countryCriticalCases.setText(Format.number(fetched.getCritical()));
+                countryCasesPerMillion.setText(Format.number(fetched.getCasesPerOneMillion()));
+                countryDeathsPerMillion.setText(Format.number(fetched.getDeathsPerOneMillion()));
+                countryTests.setText(Format.number(fetched.getTests()));
+                countryTestsPerMillion.setText(Format.number(fetched.getTestsPerOneMillion()));
+                lastUpdated = fetched.getUpdated();
+                tvLastUpdated.setText(Format.date(lastUpdated));
 
             }
         }, new Response.ErrorListener() {
