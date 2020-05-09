@@ -10,12 +10,12 @@
           app:showAsAction="ifRoom"
     />
 
-    <item
+    <!--item
           android:id="@+id/menuSearch"
           android:title="@string/search_button"
           android:icon="@drawable/search"
           android:orderInCategory="101"
           app:showAsAction="ifRoom"
-    />
+    /-->
 
 </menu>

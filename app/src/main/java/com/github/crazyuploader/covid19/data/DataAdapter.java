@@ -10,10 +10,12 @@ import com.crazyuploader.covid19.R;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
 
+    private onCountryClickListener onCountryClickListener;
     private final Data[] fetched;
-    public DataAdapter(Data[] data)
+    public DataAdapter(Data[] data, onCountryClickListener onCountryClickListener)
     {
         this.fetched = data;
+        this.onCountryClickListener = onCountryClickListener;
     }
 
     @NonNull
@@ -22,7 +24,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.country_data_layout, parent, false);
         view.setBackgroundColor(0);
-        return new DataViewHolder(view);
+        return new DataViewHolder(view, onCountryClickListener);
     }
 
     @Override
@@ -42,14 +44,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         return fetched.length;
     }
 
-    public static class DataViewHolder extends RecyclerView.ViewHolder {
+    public static class DataViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final TextView countryName;
         final TextView countryTotalCases;
         final TextView countryTotalDeaths;
         final TextView countryRecovered;
         final TextView countryTodayCases;
         final TextView countryTodayDeaths;
-        public DataViewHolder(@NonNull View itemView) {
+        onCountryClickListener onCountryClickListener;
+
+        public DataViewHolder(@NonNull View itemView, onCountryClickListener listener) {
             super(itemView);
 
             countryName = itemView.findViewById(R.id.countryName);
@@ -58,7 +62,19 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
             countryRecovered = itemView.findViewById(R.id.countryRecovered);
             countryTodayCases = itemView.findViewById(R.id.countryTodayCases);
             countryTodayDeaths = itemView.findViewById(R.id.countryTodayDeaths);
+            onCountryClickListener = listener;
+            itemView.setOnClickListener(this);
 
         }
+
+        @Override
+        public void onClick(View v) {
+            onCountryClickListener.onCountryClick(countryName.getText());
+
+        }
+    }
+
+    public interface onCountryClickListener{
+        void onCountryClick(CharSequence countryName);
     }
 }

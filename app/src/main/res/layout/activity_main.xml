@@ -40,4 +40,5 @@
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/footer_main"/>
+
 </LinearLayout>

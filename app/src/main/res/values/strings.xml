@@ -7,7 +7,16 @@
     <string name="cases">Cases</string>
     <string name="recovered">Recovered</string>
     <string name="deaths">Deaths</string>
+    <string name="todayCases">Cases Today</string>
+    <string name="todayDeaths">Deaths Today</string>
+    <string name="activeCases">Active Cases</string>
+    <string name="casesPerMillion">Cases Per Million</string>
+    <string name="deathsPerMillion">Deaths Per Million</string>
+    <string name="tests">Total Tests</string>
+    <string name="criticalCases">Critical Cases</string>
+    <string name="testsPerMillion">Tests Per Million</string>
     <string name="search_button">Search</string>
     <string name="network_issue">Internet issue, please try again</string>
     <string name="splash_icon">Splash Icon</string>
+    <string name="country_flag">Country Flag</string>
 </resources>

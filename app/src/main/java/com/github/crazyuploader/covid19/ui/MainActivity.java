@@ -25,7 +25,7 @@ import com.github.crazyuploader.covid19.data.DataAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DataAdapter.onCountryClickListener {
 
     ProgressBar progressBar;
     RecyclerView countryView;
@@ -43,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 break;
 
-            case R.id.menuSearch:
+            /*case R.id.menuSearch:
                 Custom_Toast.show(this, "Uh-Huh, WIP!", 1);
                 break;
+             */
         }
 
         return super.onOptionsItemSelected(item);
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 Gson gson = gsonBuilder.create();
                 Data[] data = gson.fromJson(response, Data[].class);
-                countryView.setAdapter(new DataAdapter(data));
+                countryView.setAdapter(new DataAdapter(data, MainActivity.this));
                 progressBar.setVisibility(View.GONE);
             }
         }, new Response.ErrorListener() {
@@ -100,5 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 Custom_Toast.show(MainActivity.this, "Following me around?", 0);
             }
         });
+    }
+
+    @Override
+    public void onCountryClick(CharSequence countryName) {
+        Custom_Toast.show(this, (String) countryName, 0);
+        Intent intent = new Intent(this, CountryDetails.class);
+        intent.putExtra("Country", countryName);
+        startActivity(intent);
     }
 }
