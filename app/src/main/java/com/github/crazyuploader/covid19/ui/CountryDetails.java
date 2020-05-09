@@ -13,6 +13,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.data.Format;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,7 +22,9 @@ public class CountryDetails extends AppCompatActivity {
     ImageView countryFlag;
     TextView tvcountryName, countryTotalCases, countryTotalDeaths, countryTodayCases, countryTodayDeaths, countryRecovered;
     TextView countryActiveCases, countryCriticalCases, countryCasesPerMillion, countryDeathsPerMillion, countryTests, countryTestsPerMillion;
+    TextView tvLastUpdated;
     String countryName, countryToFetch;
+    Long lastUpdated;
     final String countryDataLink = "https://disease.sh/v2/countries/";
 
     @Override
@@ -42,6 +45,7 @@ public class CountryDetails extends AppCompatActivity {
         countryDeathsPerMillion = findViewById(R.id.frag_countryDeathsPerMillion);
         countryTests = findViewById(R.id.frag_countryTests);
         countryTestsPerMillion = findViewById(R.id.frag_countryTestsPerMillion);
+        tvLastUpdated = findViewById(R.id.tvLastUpdated);
 
         countryName = getIntent().getStringExtra("Country");
 
@@ -75,6 +79,8 @@ public class CountryDetails extends AppCompatActivity {
                     countryDeathsPerMillion.setText(jsonObject.getString("deathsPerOneMillion"));
                     countryTests.setText(jsonObject.getString("tests"));
                     countryTestsPerMillion.setText(jsonObject.getString("testsPerOneMillion"));
+                    lastUpdated = jsonObject.getLong("updated");
+                    tvLastUpdated.setText(Format.date(lastUpdated));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
