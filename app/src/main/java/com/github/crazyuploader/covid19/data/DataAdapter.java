@@ -10,7 +10,7 @@ import com.crazyuploader.covid19.R;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
 
-    private onCountryClickListener onCountryClickListener;
+    private final onCountryClickListener onCountryClickListener;
     private final Data[] fetched;
     public DataAdapter(Data[] data, onCountryClickListener onCountryClickListener)
     {
@@ -51,7 +51,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         final TextView countryRecovered;
         final TextView countryTodayCases;
         final TextView countryTodayDeaths;
-        onCountryClickListener onCountryClickListener;
+        final onCountryClickListener onCountryClickListener;
 
         public DataViewHolder(@NonNull View itemView, onCountryClickListener listener) {
             super(itemView);

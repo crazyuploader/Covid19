@@ -93,6 +93,6 @@ public class CountryDetails extends AppCompatActivity {
         });
 
         requestQueue.add(stringRequest);
-    };
+    }
 
 }

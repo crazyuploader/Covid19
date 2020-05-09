@@ -42,20 +42,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/cases"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cases"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryTotalCases"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryTotalCases"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -68,20 +70,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/todayCases"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/todayCases"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryTodayCase"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryTodayCase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -94,20 +98,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/deaths"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/deaths"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryTotalDeaths"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryTotalDeaths"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -120,20 +126,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/todayDeaths"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/todayDeaths"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryTodayDeaths"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryTodayDeaths"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -146,20 +154,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/recovered"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/recovered"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryRecovered"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryRecovered"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -172,20 +182,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/activeCases"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/activeCases"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryActiveCases"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryActiveCases"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -199,20 +211,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/criticalCases"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/criticalCases"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryCritical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryCritical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -225,20 +239,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/casesPerMillion"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/casesPerMillion"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryCasesPerMillion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryCasesPerMillion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -251,20 +267,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/deathsPerMillion"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/deathsPerMillion"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryDeathsPerMillion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryDeathsPerMillion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -277,20 +295,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/tests"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tests"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryTests"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryTests"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
 
@@ -303,22 +323,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/testsPerMillion"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/testsPerMillion"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed-light"/>
 
         <TextView
-            android:id="@+id/frag_countryTestsPerMillion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:textSize="26sp" />
+                android:id="@+id/frag_countryTestsPerMillion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:textSize="26sp"
+                android:fontFamily="sans-serif-condensed-light"/>
 
     </LinearLayout>
+
     <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
