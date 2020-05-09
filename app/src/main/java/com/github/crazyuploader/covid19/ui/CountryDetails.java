@@ -24,7 +24,7 @@ public class CountryDetails extends AppCompatActivity {
     TextView countryActiveCases, countryCriticalCases, countryCasesPerMillion, countryDeathsPerMillion, countryTests, countryTestsPerMillion;
     TextView tvLastUpdated;
     String countryName, countryToFetch;
-    Long lastUpdated;
+    long lastUpdated;
     final String countryDataLink = "https://disease.sh/v2/countries/";
 
     @Override
