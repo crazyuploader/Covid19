@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.globalData.Data;
+import com.github.crazyuploader.covid19.misc.Format;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
 
@@ -32,12 +33,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
         Data country = fetched[position];
         holder.countryName.setText(country.getCountry());
-        holder.countryTotalCases.setText(country.getCases().toString());
-        holder.countryTotalDeaths.setText(country.getDeaths().toString());
-        holder.countryRecovered.setText(country.getRecovered().toString());
-        holder.countryTodayCases.setText("(+" + country.getTodayCases().toString()+ " new)");
-        holder.countryTodayDeaths.setText("(+" + country.getTodayDeaths().toString()+ " new)");
-        //Glide.with(holder.countryFlag.getContext()).load(country.getCountryInfo().getFlag()).into(holder.countryFlag);
+        holder.countryTotalCases.setText(Format.number(country.getCases()));
+        holder.countryTotalDeaths.setText(Format.number(country.getDeaths()));
+        holder.countryRecovered.setText(Format.number(country.getRecovered()));
+        holder.countryTodayCases.setText("(+" + Format.number(country.getTodayCases()) + " new)");
+        holder.countryTodayDeaths.setText("(+" + Format.number(country.getTodayDeaths()) + " new)");
     }
 
     @Override
