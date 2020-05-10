@@ -3,13 +3,10 @@ package com.github.crazyuploader.covid19.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.globalData.Data;
 import com.github.crazyuploader.covid19.globalData.adapter.DataAdapter;
 import com.google.gson.Gson;
@@ -31,32 +28,7 @@ public class MainActivity extends AppCompatActivity implements DataAdapter.onCou
     RecyclerView countryView;
     TextView footer;
     final String githubURL = "https://crazyuploader.github.io/";
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.menuRefresh) {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-
-            /*case R.id.menuSearch:
-                Custom_Toast.show(this, "Uh-Huh, WIP!", 1);
-                break;
-             */
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     final String baseURL = "https://disease.sh/v2/countries?sort=cases";
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

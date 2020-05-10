@@ -2,7 +2,7 @@ package com.github.crazyuploader.covid19.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.R;
 
 public class IndianStatesDetail extends AppCompatActivity {
 

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.globalData.Data;
 import com.github.crazyuploader.covid19.misc.Format;
 
