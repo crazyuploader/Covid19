@@ -21,7 +21,7 @@ public class Format {
 
     public static String date(Long input){
         Date date = new Date(input);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd yyyy   HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy ; HH:mm:ss", Locale.getDefault());
         return  simpleDateFormat.format(date);
     }
 }

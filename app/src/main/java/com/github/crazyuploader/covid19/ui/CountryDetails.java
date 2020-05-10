@@ -2,7 +2,10 @@ package com.github.crazyuploader.covid19.ui;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
@@ -26,6 +29,8 @@ public class CountryDetails extends AppCompatActivity {
     Data fetched;
     TextView tvLastUpdated;
     String countryName, countryToFetch;
+    ProgressBar frag_progressBar;
+    LinearLayout countryDataHolder;
     long lastUpdated;
     final String countryDataLink = "https://disease.sh/v2/countries/";
 
@@ -48,6 +53,8 @@ public class CountryDetails extends AppCompatActivity {
         countryTests = findViewById(R.id.frag_countryTests);
         countryTestsPerMillion = findViewById(R.id.frag_countryTestsPerMillion);
         tvLastUpdated = findViewById(R.id.tvLastUpdated);
+        frag_progressBar = findViewById(R.id.frag_progressBar);
+        countryDataHolder = findViewById(R.id.countryDataHolder);
 
         countryName = getIntent().getStringExtra("Country");
 
@@ -83,6 +90,8 @@ public class CountryDetails extends AppCompatActivity {
                 countryTestsPerMillion.setText(Format.number(fetched.getTestsPerOneMillion()));
                 lastUpdated = fetched.getUpdated();
                 tvLastUpdated.setText(Format.date(lastUpdated));
+                frag_progressBar.setVisibility(View.GONE);
+                countryDataHolder.setVisibility(View.VISIBLE);
 
             }
         }, new Response.ErrorListener() {
