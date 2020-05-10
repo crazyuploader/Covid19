@@ -1,4 +1,4 @@
-package com.github.crazyuploader.covid19.data;
+package com.github.crazyuploader.covid19.misc;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;

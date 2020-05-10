@@ -16,8 +16,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.crazyuploader.covid19.R;
-import com.github.crazyuploader.covid19.data.Data;
-import com.github.crazyuploader.covid19.data.Format;
+import com.github.crazyuploader.covid19.globalData.Data;
+import com.github.crazyuploader.covid19.misc.Format;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

@@ -1,5 +1,5 @@
 
-package com.github.crazyuploader.covid19.data;
+package com.github.crazyuploader.covid19.globalData;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
