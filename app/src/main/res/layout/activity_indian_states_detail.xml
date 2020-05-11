@@ -10,5 +10,17 @@
 
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/tvIndianStatesTest" android:textSize="18sp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="@string/indian_states_stats"
+            android:textSize="32sp"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvIndianStatesTest"
+            android:textSize="20sp"/>
+
 </LinearLayout>
