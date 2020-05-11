@@ -10,11 +10,11 @@ import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.globalData.Data;
 import com.github.crazyuploader.covid19.misc.Format;
 
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
+public class GlobalDataAdapter extends RecyclerView.Adapter<GlobalDataAdapter.DataViewHolder> {
 
     private final onCountryClickListener onCountryClickListener;
     private final Data[] fetched;
-    public DataAdapter(Data[] data, onCountryClickListener onCountryClickListener)
+    public GlobalDataAdapter(Data[] data, onCountryClickListener onCountryClickListener)
     {
         this.fetched = data;
         this.onCountryClickListener = onCountryClickListener;

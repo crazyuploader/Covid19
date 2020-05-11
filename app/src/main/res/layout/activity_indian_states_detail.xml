@@ -8,4 +8,7 @@
         android:background="@color/colorPrimary"
         tools:context="com.github.crazyuploader.covid19.ui.IndianStatesDetail">
 
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/tvIndianStatesTest" android:textSize="18sp"/>
 </LinearLayout>

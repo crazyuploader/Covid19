@@ -18,11 +18,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.globalData.Data;
-import com.github.crazyuploader.covid19.globalData.adapter.DataAdapter;
+import com.github.crazyuploader.covid19.globalData.adapter.GlobalDataAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class MainActivity extends AppCompatActivity implements DataAdapter.onCountryClickListener {
+public class MainActivity extends AppCompatActivity implements GlobalDataAdapter.onCountryClickListener {
 
     ProgressBar progressBar;
     RecyclerView countryView;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements DataAdapter.onCou
                 GsonBuilder gsonBuilder = new GsonBuilder();
                 Gson gson = gsonBuilder.create();
                 Data[] data = gson.fromJson(response, Data[].class);
-                countryView.setAdapter(new DataAdapter(data, MainActivity.this));
+                countryView.setAdapter(new GlobalDataAdapter(data, MainActivity.this));
                 progressBar.setVisibility(View.GONE);
             }
         }, new Response.ErrorListener() {
