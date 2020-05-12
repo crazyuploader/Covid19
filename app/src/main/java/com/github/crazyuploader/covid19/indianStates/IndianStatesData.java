@@ -6,18 +6,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class IndianStatesData {
 
-    @SerializedName("success")
+    @SerializedName("loc")
     @Expose
-    private Boolean success;
-    @SerializedName("data")
+    private String loc;
+    @SerializedName("confirmedCasesIndian")
     @Expose
-    private Data data;
-    @SerializedName("lastRefreshed")
+    private Long confirmedCasesIndian;
+    @SerializedName("discharged")
     @Expose
-    private String lastRefreshed;
-    @SerializedName("lastOriginUpdate")
+    private Long discharged;
+    @SerializedName("deaths")
     @Expose
-    private String lastOriginUpdate;
+    private Long deaths;
+    @SerializedName("confirmedCasesForeign")
+    @Expose
+    private Long confirmedCasesForeign;
+    @SerializedName("totalConfirmed")
+    @Expose
+    private Long totalConfirmed;
 
     /**
      * No args constructor for use in serialization
@@ -28,49 +34,69 @@ public class IndianStatesData {
 
     /**
      * 
-     * @param lastRefreshed
-     * @param data
-     * @param success
-     * @param lastOriginUpdate
+     * @param loc
+     * @param discharged
+     * @param confirmedCasesForeign
+     * @param confirmedCasesIndian
+     * @param deaths
+     * @param totalConfirmed
      */
-    public IndianStatesData(Boolean success, Data data, String lastRefreshed, String lastOriginUpdate) {
+    public IndianStatesData(String loc, Long confirmedCasesIndian, Long discharged, Long deaths, Long confirmedCasesForeign, Long totalConfirmed) {
         super();
-        this.success = success;
-        this.data = data;
-        this.lastRefreshed = lastRefreshed;
-        this.lastOriginUpdate = lastOriginUpdate;
+        this.loc = loc;
+        this.confirmedCasesIndian = confirmedCasesIndian;
+        this.discharged = discharged;
+        this.deaths = deaths;
+        this.confirmedCasesForeign = confirmedCasesForeign;
+        this.totalConfirmed = totalConfirmed;
     }
 
-    public Boolean getSuccess() {
-        return success;
+    public String getLoc() {
+        return loc;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
+    public void setLoc(String loc) {
+        this.loc = loc;
     }
 
-    public Data getData() {
-        return data;
+    public Long getConfirmedCasesIndian() {
+        return confirmedCasesIndian;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setConfirmedCasesIndian(Long confirmedCasesIndian) {
+        this.confirmedCasesIndian = confirmedCasesIndian;
     }
 
-    public String getLastRefreshed() {
-        return lastRefreshed;
+    public Long getDischarged() {
+        return discharged;
     }
 
-    public void setLastRefreshed(String lastRefreshed) {
-        this.lastRefreshed = lastRefreshed;
+    public void setDischarged(Long discharged) {
+        this.discharged = discharged;
     }
 
-    public String getLastOriginUpdate() {
-        return lastOriginUpdate;
+    public Long getDeaths() {
+        return deaths;
     }
 
-    public void setLastOriginUpdate(String lastOriginUpdate) {
-        this.lastOriginUpdate = lastOriginUpdate;
+    public void setDeaths(Long deaths) {
+        this.deaths = deaths;
+    }
+
+    public Long getConfirmedCasesForeign() {
+        return confirmedCasesForeign;
+    }
+
+    public void setConfirmedCasesForeign(Long confirmedCasesForeign) {
+        this.confirmedCasesForeign = confirmedCasesForeign;
+    }
+
+    public Long getTotalConfirmed() {
+        return totalConfirmed;
+    }
+
+    public void setTotalConfirmed(Long totalConfirmed) {
+        this.totalConfirmed = totalConfirmed;
     }
 
 }
