@@ -3,7 +3,6 @@ package com.github.crazyuploader.covid19.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -19,91 +18,89 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.crazyuploader.covid19.R;
-import com.github.crazyuploader.covid19.data.Data;
-import com.github.crazyuploader.covid19.data.DataAdapter;
+import com.github.crazyuploader.covid19.R;
+import com.github.crazyuploader.covid19.globalData.Data;
+import com.github.crazyuploader.covid19.globalData.adapter.GlobalDataAdapter;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class MainActivity extends AppCompatActivity implements DataAdapter.onCountryClickListener {
+public class MainActivity extends AppCompatActivity
+    implements GlobalDataAdapter.onCountryClickListener,
+               BottomNavigationView.OnNavigationItemSelectedListener {
 
-    ProgressBar progressBar;
-    RecyclerView countryView;
-    TextView footer;
-    final String githubURL = "https://crazyuploader.github.io/";
+  BottomNavigationView bottomNavigationView;
+  ProgressBar progressBar;
+  RecyclerView countryView;
+  TextView footer;
+  final String githubURL = "https://crazyuploader.github.io/";
+  final String baseURL = "https://disease.sh/v2/countries?sort=cases";
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        if (item.getItemId() == R.id.menuRefresh) {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+    countryView = findViewById(R.id.countryView);
+    countryView.setLayoutManager(new LinearLayoutManager(this));
+    progressBar = findViewById(R.id.progressbar);
+    footer = findViewById(R.id.footer_main);
+    bottomNavigationView = findViewById(R.id.bottom_navigation_view);
 
-            /*case R.id.menuSearch:
-                Custom_Toast.show(this, "Uh-Huh, WIP!", 1);
-                break;
-             */
-        }
+    bottomNavigationView.setSelectedItemId(R.id.navigation_overview);
+    bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        return super.onOptionsItemSelected(item);
-    }
+    final RequestQueue requestQueue = Volley.newRequestQueue(this);
+    final Toast if_fetch_error =
+        Toast.makeText(this, R.string.network_issue, Toast.LENGTH_LONG);
 
-    final String baseURL = "https://disease.sh/v2/countries?sort=cases";
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        countryView = findViewById(R.id.countryView);
-        countryView.setLayoutManager(new LinearLayoutManager(this));
-        progressBar = findViewById(R.id.progressbar);
-        footer = findViewById(R.id.footer_main);
-
-        final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final Toast if_fetch_error = Toast.makeText(this, R.string.network_issue, Toast.LENGTH_LONG);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, baseURL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                GsonBuilder gsonBuilder = new GsonBuilder();
-                Gson gson = gsonBuilder.create();
-                Data[] data = gson.fromJson(response, Data[].class);
-                countryView.setAdapter(new DataAdapter(data, MainActivity.this));
-                progressBar.setVisibility(View.GONE);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if_fetch_error.show();
-                progressBar.setVisibility(View.GONE);
-            }
+    StringRequest stringRequest = new StringRequest(
+        Request.Method.GET, baseURL,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String response) {
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            Gson gson = gsonBuilder.create();
+            Data[] data = gson.fromJson(response, Data[].class);
+            countryView.setAdapter(
+                new GlobalDataAdapter(data, MainActivity.this));
+            progressBar.setVisibility(View.GONE);
+          }
+        },
+        new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            if_fetch_error.show();
+            progressBar.setVisibility(View.GONE);
+          }
         });
 
-        requestQueue.add(stringRequest);
+    requestQueue.add(stringRequest);
 
-        footer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(githubURL));
-                startActivity(browserIntent);
-                Custom_Toast.show(MainActivity.this, "Following me around?", 0);
-            }
-        });
-    }
+    footer.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent browserIntent =
+            new Intent(Intent.ACTION_VIEW, Uri.parse(githubURL));
+        startActivity(browserIntent);
+        Custom_Toast.show(MainActivity.this, "Following me around?", 0);
+      }
+    });
+  }
 
-    @Override
-    public void onCountryClick(CharSequence countryName) {
-        Intent intent = new Intent(this, CountryDetails.class);
-        intent.putExtra("Country", countryName);
-        startActivity(intent);
+  @Override
+  public void onCountryClick(CharSequence countryName) {
+    Intent intent = new Intent(this, CountryDetails.class);
+    intent.putExtra("Country", countryName);
+    startActivity(intent);
+  }
+
+  @Override
+  public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+    if (item.getItemId() == R.id.navigation_india) {
+      startActivity(new Intent(MainActivity.this, IndianStatesDetail.class));
     }
+    return true;
+  }
 }
