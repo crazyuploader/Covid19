@@ -20,4 +20,7 @@
     <string name="splash_icon">Splash Icon</string>
     <string name="country_flag">Country Flag</string>
     <string name="indian_states_stats">Indian States Stats</string>
+    <string name="state_confirmed_cases">Confirmed Cases</string>
+    <string name="state_discharged">Discharged</string>
+    <string name="state_deaths">Deaths</string>
 </resources>

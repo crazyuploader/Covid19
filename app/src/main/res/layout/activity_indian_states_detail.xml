@@ -17,10 +17,9 @@
             android:text="@string/indian_states_stats"
             android:textSize="32sp"/>
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvIndianStatesTest"
-            android:textSize="20sp"/>
+            android:id="@+id/indianStateRecyclerView"/>
 
 </LinearLayout>

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -12,6 +14,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.indianStates.IndianStatesData;
+import com.github.crazyuploader.covid19.indianStates.adapter.IndianStatesDataAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONArray;
@@ -20,15 +23,15 @@ import org.json.JSONObject;
 
 public class IndianStatesDetail extends AppCompatActivity {
 
-    TextView tvIndianStatesTest;
+    RecyclerView indianStateRecyclerView;
     String indianStatesURL = "https://api.rootnet.in/covid19-in/stats/latest";
-    String statesData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indian_states_detail);
 
-        tvIndianStatesTest = findViewById(R.id.tvIndianStatesTest);
+        indianStateRecyclerView = findViewById(R.id.indianStateRecyclerView);
+        indianStateRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
@@ -42,6 +45,7 @@ public class IndianStatesDetail extends AppCompatActivity {
                     GsonBuilder gsonBuilder = new GsonBuilder();
                     Gson gson = gsonBuilder.create();
                     IndianStatesData[] stateData = gson.fromJson(String.valueOf(regional), IndianStatesData[].class);
+                    indianStateRecyclerView.setAdapter(new IndianStatesDataAdapter(stateData));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

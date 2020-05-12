@@ -23,7 +23,6 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:id="@+id/indianStateName"
-                android:text="UTTAR PRADESH"
                 android:textAllCaps="true"/>
 
         <LinearLayout
@@ -39,26 +38,29 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/stateConfirmed"
-                          android:text="Confirmed Cases"
-                          android:textSize="24sp"
-                          android:textStyle="bold"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stateConfirmed"
+                        android:text="@string/state_confirmed_cases"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
 
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/stateDischarged"
-                          android:text="Discharged"
-                          android:textSize="24sp"
-                          android:textStyle="bold"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stateDischarged"
+                        android:text="@string/state_discharged"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
 
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/stateDeaths"
-                          android:text="Deaths"
-                          android:textSize="24sp"
-                          android:textStyle="bold"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stateDeaths"
+                        android:text="@string/state_deaths"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -70,26 +72,26 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:text="33"
-                          android:id="@+id/indianStateConfirmed"
-                          android:textSize="24sp"
-                          android:gravity="end"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/indianStateConfirmed"
+                        android:textSize="24sp"
+                        android:gravity="end"/>
 
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/indianStateDischarged"
-                          android:text="33"
-                          android:textSize="24sp"
-                          android:gravity="end"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/indianStateDischarged"
+                        android:textSize="24sp"
+                        android:gravity="end"/>
 
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/indianStateDeaths"
-                          android:text="0"
-                          android:textSize="24sp"
-                          android:gravity="end"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/indianStateDeaths"
+                        android:textSize="24sp"
+                        android:gravity="end"/>
 
             </LinearLayout>
 
