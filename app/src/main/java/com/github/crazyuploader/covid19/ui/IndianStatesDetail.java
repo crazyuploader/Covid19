@@ -2,7 +2,8 @@ package com.github.crazyuploader.covid19.ui;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,13 +24,15 @@ import org.json.JSONObject;
 
 public class IndianStatesDetail extends AppCompatActivity {
 
+    ProgressBar stateProgressBar;
     RecyclerView indianStateRecyclerView;
-    String indianStatesURL = "https://api.rootnet.in/covid19-in/stats/latest";
+    final String indianStatesURL = "https://api.rootnet.in/covid19-in/stats/latest";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indian_states_detail);
 
+        stateProgressBar = findViewById(R.id.stateProgressBar);
         indianStateRecyclerView = findViewById(R.id.indianStateRecyclerView);
         indianStateRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -45,6 +48,7 @@ public class IndianStatesDetail extends AppCompatActivity {
                     GsonBuilder gsonBuilder = new GsonBuilder();
                     Gson gson = gsonBuilder.create();
                     IndianStatesData[] stateData = gson.fromJson(String.valueOf(regional), IndianStatesData[].class);
+                    stateProgressBar.setVisibility(View.GONE);
                     indianStateRecyclerView.setAdapter(new IndianStatesDataAdapter(stateData));
                 } catch (JSONException e) {
                     e.printStackTrace();

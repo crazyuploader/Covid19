@@ -90,9 +90,8 @@ public class MainActivity extends AppCompatActivity implements GlobalDataAdapter
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case R.id.navigation_india:
-                startActivity(new Intent(MainActivity.this, IndianStatesDetail.class));
+        if (item.getItemId() == R.id.navigation_india) {
+            startActivity(new Intent(MainActivity.this, IndianStatesDetail.class));
         }
         return true;
     }

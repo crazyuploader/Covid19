@@ -17,7 +17,14 @@
             android:text="@string/indian_states_stats"
             android:textSize="32sp"/>
 
+    <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:indeterminateTint="#212121"
+            android:id="@+id/stateProgressBar"/>
+
     <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/indianStateRecyclerView"/>

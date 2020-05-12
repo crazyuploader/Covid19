@@ -13,7 +13,6 @@ import com.github.crazyuploader.covid19.misc.Format;
 public class IndianStatesDataAdapter extends RecyclerView.Adapter<IndianStatesDataAdapter.IndianStatesViewHolder> {
 
     private final IndianStatesData[] fetched;
-
     public IndianStatesDataAdapter(IndianStatesData[] fetched) {
         this.fetched = fetched;
     }
@@ -23,6 +22,7 @@ public class IndianStatesDataAdapter extends RecyclerView.Adapter<IndianStatesDa
     public IndianStatesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.indian_states_layout, parent, false);
+        view.setBackgroundColor(0);
         return new IndianStatesViewHolder(view);
     }
 
@@ -42,8 +42,11 @@ public class IndianStatesDataAdapter extends RecyclerView.Adapter<IndianStatesDa
         return fetched.length;
     }
 
-    public class IndianStatesViewHolder extends RecyclerView.ViewHolder {
-        TextView indianStateName, indianStateConfirmed, indianStateDischarged, indianStateDeaths;
+    public static class IndianStatesViewHolder extends RecyclerView.ViewHolder {
+        final TextView indianStateName;
+        final TextView indianStateConfirmed;
+        final TextView indianStateDischarged;
+        final TextView indianStateDeaths;
         public IndianStatesViewHolder(@NonNull View itemView) {
             super(itemView);
 
