@@ -1,15 +1,13 @@
 package com.github.crazyuploader.covid19.ui.frags;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.github.crazyuploader.covid19.R;
 
 /**
@@ -68,10 +66,12 @@ public class MapsOverview extends Fragment {
         WebSettings webSettings = mapsOverview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mapsOverview.setWebViewClient(new WebViewClient());
+        /*
         int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
             webSettings.setForceDark(WebSettings.FORCE_DARK_ON);
         }
+        */
         return view;
     }
 }

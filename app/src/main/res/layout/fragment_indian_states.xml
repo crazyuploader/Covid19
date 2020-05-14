@@ -9,7 +9,7 @@
 
     <TextView
             android:layout_width="match_parent"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:background="@drawable/rounded_topless"
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
@@ -26,7 +26,6 @@
             android:id="@+id/stateProgressBar"/>
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
