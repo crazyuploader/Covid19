@@ -1,6 +1,10 @@
 package com.github.crazyuploader.covid19.ui.frags;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +27,7 @@ public class MapsOverview extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    WebView mapsOverview;
     public MapsOverview() {
         // Required empty public constructor
     }
@@ -57,7 +62,16 @@ public class MapsOverview extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maps_overview, container, false);
+        View view = inflater.inflate(R.layout.fragment_maps_overview, container, false);
+        mapsOverview = view.findViewById(R.id.mapsOverview);
+        mapsOverview.loadUrl("https://bing.com/covid");
+        WebSettings webSettings = mapsOverview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        mapsOverview.setWebViewClient(new WebViewClient());
+        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            webSettings.setForceDark(WebSettings.FORCE_DARK_ON);
+        }
+        return view;
     }
 }
