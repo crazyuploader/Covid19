@@ -27,5 +27,6 @@
     <string name="world_overiew">World Overiew</string>
     <string name="indian_states">Indian States</string>
     <string name="about">About</string>
+    <string name="mapsOverview">Maps Overview</string>
 
 </resources>

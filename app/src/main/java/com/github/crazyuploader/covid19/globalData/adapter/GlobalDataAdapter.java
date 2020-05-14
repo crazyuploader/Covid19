@@ -27,7 +27,6 @@ public class GlobalDataAdapter
                                              int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.country_data_layout, parent, false);
-        view.setBackgroundColor(0);
         return new DataViewHolder(view, onCountryClickListener);
     }
 
