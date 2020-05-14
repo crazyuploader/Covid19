@@ -4,16 +4,16 @@
     <item
             android:id="@+id/navigation_overview"
             android:icon="@drawable/menu_overview"
-            android:title="World Overiew"/>
+            android:title="@string/world_overiew"/>
 
     <item
             android:id="@+id/navigation_india"
             android:icon="@drawable/menu_india"
-            android:title="Indian States"/>
+            android:title="@string/indian_states"/>
 
     <item
             android:id="@+id/navigation_about"
             android:icon="@drawable/menu_about"
-            android:title="About"/>
+            android:title="@string/about"/>
 
 </menu>

@@ -6,71 +6,71 @@ import com.google.gson.annotations.SerializedName;
 
 public class IndianStatesData {
 
-  @SerializedName("loc") @Expose private String loc;
-  @SerializedName("confirmedCasesIndian")
-  @Expose
-  private Long confirmedCasesIndian;
-  @SerializedName("discharged") @Expose private Long discharged;
-  @SerializedName("deaths") @Expose private Long deaths;
-  @SerializedName("confirmedCasesForeign")
-  @Expose
-  private Long confirmedCasesForeign;
-  @SerializedName("totalConfirmed") @Expose private Long totalConfirmed;
+    @SerializedName("loc") @Expose private String loc;
+    @SerializedName("confirmedCasesIndian")
+    @Expose
+    private Long confirmedCasesIndian;
+    @SerializedName("discharged") @Expose private Long discharged;
+    @SerializedName("deaths") @Expose private Long deaths;
+    @SerializedName("confirmedCasesForeign")
+    @Expose
+    private Long confirmedCasesForeign;
+    @SerializedName("totalConfirmed") @Expose private Long totalConfirmed;
 
-  /**
-   * No args constructor for use in serialization
-   *
-   */
-  public IndianStatesData() {}
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public IndianStatesData() {}
 
-  /**
-   *
-   * @param loc
-   * @param discharged
-   * @param confirmedCasesForeign
-   * @param confirmedCasesIndian
-   * @param deaths
-   * @param totalConfirmed
-   */
-  public IndianStatesData(String loc, Long confirmedCasesIndian,
-                          Long discharged, Long deaths,
-                          Long confirmedCasesForeign, Long totalConfirmed) {
-    super();
-    this.loc = loc;
-    this.confirmedCasesIndian = confirmedCasesIndian;
-    this.discharged = discharged;
-    this.deaths = deaths;
-    this.confirmedCasesForeign = confirmedCasesForeign;
-    this.totalConfirmed = totalConfirmed;
-  }
+    /**
+     *
+     * @param loc
+     * @param discharged
+     * @param confirmedCasesForeign
+     * @param confirmedCasesIndian
+     * @param deaths
+     * @param totalConfirmed
+     */
+    public IndianStatesData(String loc, Long confirmedCasesIndian,
+                            Long discharged, Long deaths,
+                            Long confirmedCasesForeign, Long totalConfirmed) {
+        super();
+        this.loc = loc;
+        this.confirmedCasesIndian = confirmedCasesIndian;
+        this.discharged = discharged;
+        this.deaths = deaths;
+        this.confirmedCasesForeign = confirmedCasesForeign;
+        this.totalConfirmed = totalConfirmed;
+    }
 
-  public String getLoc() { return loc; }
+    public String getLoc() { return loc; }
 
-  public void setLoc(String loc) { this.loc = loc; }
+    public void setLoc(String loc) { this.loc = loc; }
 
-  public Long getConfirmedCasesIndian() { return confirmedCasesIndian; }
+    public Long getConfirmedCasesIndian() { return confirmedCasesIndian; }
 
-  public void setConfirmedCasesIndian(Long confirmedCasesIndian) {
-    this.confirmedCasesIndian = confirmedCasesIndian;
-  }
+    public void setConfirmedCasesIndian(Long confirmedCasesIndian) {
+        this.confirmedCasesIndian = confirmedCasesIndian;
+    }
 
-  public Long getDischarged() { return discharged; }
+    public Long getDischarged() { return discharged; }
 
-  public void setDischarged(Long discharged) { this.discharged = discharged; }
+    public void setDischarged(Long discharged) { this.discharged = discharged; }
 
-  public Long getDeaths() { return deaths; }
+    public Long getDeaths() { return deaths; }
 
-  public void setDeaths(Long deaths) { this.deaths = deaths; }
+    public void setDeaths(Long deaths) { this.deaths = deaths; }
 
-  public Long getConfirmedCasesForeign() { return confirmedCasesForeign; }
+    public Long getConfirmedCasesForeign() { return confirmedCasesForeign; }
 
-  public void setConfirmedCasesForeign(Long confirmedCasesForeign) {
-    this.confirmedCasesForeign = confirmedCasesForeign;
-  }
+    public void setConfirmedCasesForeign(Long confirmedCasesForeign) {
+        this.confirmedCasesForeign = confirmedCasesForeign;
+    }
 
-  public Long getTotalConfirmed() { return totalConfirmed; }
+    public Long getTotalConfirmed() { return totalConfirmed; }
 
-  public void setTotalConfirmed(Long totalConfirmed) {
-    this.totalConfirmed = totalConfirmed;
-  }
+    public void setTotalConfirmed(Long totalConfirmed) {
+        this.totalConfirmed = totalConfirmed;
+    }
 }

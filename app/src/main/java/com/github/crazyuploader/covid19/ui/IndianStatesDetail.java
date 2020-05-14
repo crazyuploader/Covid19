@@ -24,49 +24,49 @@ import org.json.JSONObject;
 
 public class IndianStatesDetail extends AppCompatActivity {
 
-  ProgressBar stateProgressBar;
-  RecyclerView indianStateRecyclerView;
-  final String indianStatesURL =
-      "https://api.rootnet.in/covid19-in/stats/latest";
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_indian_states_detail);
+    ProgressBar stateProgressBar;
+    RecyclerView indianStateRecyclerView;
+    final String indianStatesURL =
+            "https://api.rootnet.in/covid19-in/stats/latest";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_indian_states_detail);
 
-    stateProgressBar = findViewById(R.id.stateProgressBar);
-    indianStateRecyclerView = findViewById(R.id.indianStateRecyclerView);
-    indianStateRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        stateProgressBar = findViewById(R.id.stateProgressBar);
+        indianStateRecyclerView = findViewById(R.id.indianStateRecyclerView);
+        indianStateRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    RequestQueue requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-    StringRequest stringRequest = new StringRequest(
-        Request.Method.GET, indianStatesURL,
-        new Response.Listener<String>() {
-          @Override
-          public void onResponse(String response) {
-            try {
-              JSONObject object = new JSONObject(response);
-              JSONObject data = object.getJSONObject("data");
-              JSONArray regional = data.getJSONArray("regional");
-              GsonBuilder gsonBuilder = new GsonBuilder();
-              Gson gson = gsonBuilder.create();
-              IndianStatesData[] stateData = gson.fromJson(
-                  String.valueOf(regional), IndianStatesData[].class);
-              stateProgressBar.setVisibility(View.GONE);
-              indianStateRecyclerView.setAdapter(
-                  new IndianStatesDataAdapter(stateData));
-            } catch (JSONException e) {
-              e.printStackTrace();
-            }
-          }
-        },
-        new Response.ErrorListener() {
-          @Override
-          public void onErrorResponse(VolleyError error) {
-            Log.d("Fetch Error", "Couldn't fetch Indian States Data");
-          }
-        });
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.GET, indianStatesURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject object = new JSONObject(response);
+                            JSONObject data = object.getJSONObject("data");
+                            JSONArray regional = data.getJSONArray("regional");
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+                            Gson gson = gsonBuilder.create();
+                            IndianStatesData[] stateData = gson.fromJson(
+                                    String.valueOf(regional), IndianStatesData[].class);
+                            stateProgressBar.setVisibility(View.GONE);
+                            indianStateRecyclerView.setAdapter(
+                                    new IndianStatesDataAdapter(stateData));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Fetch Error", "Couldn't fetch Indian States Data");
+                    }
+                });
 
-    requestQueue.add(stringRequest);
-  }
+        requestQueue.add(stringRequest);
+    }
 }

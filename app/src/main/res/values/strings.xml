@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Covid 19</string>
     <string name="warning">Stay home, Stay safe.</string>
     <string name="footer">Made by Jugal</string>
@@ -23,4 +24,8 @@
     <string name="state_confirmed_cases">Confirmed Cases</string>
     <string name="state_discharged">Discharged</string>
     <string name="state_deaths">Deaths</string>
+    <string name="world_overiew">World Overiew</string>
+    <string name="indian_states">Indian States</string>
+    <string name="about">About</string>
+
 </resources>

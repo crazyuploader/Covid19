@@ -1,4 +1,4 @@
-package com.github.crazyuploader.covid19.ui;
+package com.github.crazyuploader.covid19.misc;
 
 import android.content.Context;
 import android.widget.Toast;
