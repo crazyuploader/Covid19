@@ -9,7 +9,7 @@ import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.ui.frags.AboutMe;
 import com.github.crazyuploader.covid19.ui.frags.IndianStates;
 import com.github.crazyuploader.covid19.ui.frags.MapsOverview;
-import com.github.crazyuploader.covid19.ui.frags.WorldOverview;
+import com.github.crazyuploader.covid19.ui.frags.GlobalOverview;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main2Activity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -27,7 +27,7 @@ public class Main2Activity extends AppCompatActivity implements BottomNavigation
     }
 
 
-    WorldOverview worldOverview = new WorldOverview();
+    GlobalOverview worldOverview = new GlobalOverview();
     IndianStates indianStates = new IndianStates();
     AboutMe about = new AboutMe();
     MapsOverview mapsOverview = new MapsOverview();
