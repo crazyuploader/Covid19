@@ -22,7 +22,6 @@
     <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:indeterminateTint="#212121"
             android:id="@+id/stateProgressBar"/>
 
     <androidx.recyclerview.widget.RecyclerView

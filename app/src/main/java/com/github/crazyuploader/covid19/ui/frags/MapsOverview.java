@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import androidx.fragment.app.Fragment;
 import com.github.crazyuploader.covid19.R;
 
@@ -24,6 +25,7 @@ public class MapsOverview extends Fragment {
     private String mParam2;
 
     WebView mapsOverview;
+    ProgressBar frag_mapProgressBar;
     public MapsOverview() {
         // Required empty public constructor
     }
@@ -59,10 +61,19 @@ public class MapsOverview extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_maps_overview, container, false);
         mapsOverview = view.findViewById(R.id.mapsOverview);
+        frag_mapProgressBar = view.findViewById(R.id.frag_mapProgressBar);
         mapsOverview.loadUrl("https://bing.com/covid");
         WebSettings webSettings = mapsOverview.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mapsOverview.setWebViewClient(new WebViewClient());
+        mapsOverview.setWebViewClient(new WebViewClient(){
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                frag_mapProgressBar.setVisibility(View.GONE);
+                mapsOverview.setVisibility(View.VISIBLE);
+            }
+        });
         /*
         int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {

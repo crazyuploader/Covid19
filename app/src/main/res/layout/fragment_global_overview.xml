@@ -33,8 +33,7 @@
         <ProgressBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/progressbar"
-                android:indeterminateTint="#2E2E2E"/>
+                android:id="@+id/progressbar"/>
 
     </LinearLayout>
 
