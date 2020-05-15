@@ -3,18 +3,21 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.github.crazyuploader.covid19.ui.IndianStatesDetail">
+        android:layout_height="match_parent"
+        tools:context=".ui.frags.IndianStates">
 
     <TextView
             android:layout_width="match_parent"
+            android:textSize="28sp"
+            android:background="@drawable/rounded_topless"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:textStyle="italic|bold"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="italic"
-            android:text="@string/indian_states_stats"
-            android:textSize="32sp"/>
+            android:text="@string/indian_states_stats"/>
 
     <ProgressBar
             android:layout_width="match_parent"
@@ -23,7 +26,6 @@
             android:id="@+id/stateProgressBar"/>
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"

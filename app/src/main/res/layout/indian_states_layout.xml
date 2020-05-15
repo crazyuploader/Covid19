@@ -47,8 +47,8 @@
                         android:id="@+id/stateConfirmed"
                         android:text="@string/state_confirmed_cases"
                         android:textSize="22sp"
-                        android:textStyle="bold" android:fontFamily="sans-serif-condensed-light"
-                        android:textColor="#FFFFFF"/>
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed-light"/>
 
                 <TextView
                         android:layout_width="match_parent"
@@ -56,8 +56,8 @@
                         android:id="@+id/stateDischarged"
                         android:text="@string/state_discharged"
                         android:textSize="22sp"
-                        android:textStyle="bold" android:fontFamily="sans-serif-condensed-light"
-                        android:textColor="#FFFFFF"/>
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed-light"/>
 
                 <TextView
                         android:layout_width="match_parent"
@@ -65,8 +65,8 @@
                         android:id="@+id/stateDeaths"
                         android:text="@string/state_deaths"
                         android:textSize="22sp"
-                        android:textStyle="bold" android:fontFamily="sans-serif-condensed-light"
-                        android:textColor="#FFFFFF"/>
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed-light"/>
 
             </LinearLayout>
 
@@ -82,7 +82,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/indianStateConfirmed"
-                        android:textColor="#29B6F6"
+                        android:textColor="#0288D1"
                         android:textSize="22sp"
                         android:gravity="end"
                         android:fontFamily="sans-serif-condensed-light"/>
@@ -91,7 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/indianStateDischarged"
-                        android:textColor="#00C853"
+                        android:textColor="#159159"
                         android:textSize="22sp"
                         android:gravity="end"
                         android:fontFamily="sans-serif-condensed-light"/>

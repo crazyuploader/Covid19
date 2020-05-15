@@ -24,8 +24,9 @@
     <string name="state_confirmed_cases">Confirmed Cases</string>
     <string name="state_discharged">Discharged</string>
     <string name="state_deaths">Deaths</string>
-    <string name="world_overiew">World Overiew</string>
-    <string name="indian_states">Indian States</string>
+    <string name="world_overiew">Global Statistics</string>
+    <string name="indian_states">Indian States Statistics</string>
     <string name="about">About</string>
+    <string name="mapsOverview">Map Overview</string>
 
 </resources>

@@ -10,15 +10,12 @@ import com.github.crazyuploader.covid19.R;
 import com.github.crazyuploader.covid19.globalData.Data;
 import com.github.crazyuploader.covid19.misc.Format;
 
-public class GlobalDataAdapter
-        extends RecyclerView.Adapter<GlobalDataAdapter.DataViewHolder> {
+public class GlobalTempDataAdapter
+        extends RecyclerView.Adapter<GlobalTempDataAdapter.DataViewHolder> {
 
-    private final onCountryClickListener onCountryClickListener;
     private final Data[] fetched;
-    public GlobalDataAdapter(Data[] data,
-                             onCountryClickListener onCountryClickListener) {
+    public GlobalTempDataAdapter(Data[] data) {
         this.fetched = data;
-        this.onCountryClickListener = onCountryClickListener;
     }
 
     @NonNull
@@ -27,7 +24,7 @@ public class GlobalDataAdapter
                                              int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.country_data_layout, parent, false);
-        return new DataViewHolder(view, onCountryClickListener);
+        return new DataViewHolder(view);
     }
 
     @Override
@@ -48,18 +45,15 @@ public class GlobalDataAdapter
         return fetched.length;
     }
 
-    public static class DataViewHolder
-            extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class DataViewHolder extends RecyclerView.ViewHolder {
         final TextView countryName;
         final TextView countryTotalCases;
         final TextView countryTotalDeaths;
         final TextView countryRecovered;
         final TextView countryTodayCases;
         final TextView countryTodayDeaths;
-        final onCountryClickListener onCountryClickListener;
 
-        public DataViewHolder(@NonNull View itemView,
-                              onCountryClickListener listener) {
+        public DataViewHolder(@NonNull View itemView) {
             super(itemView);
 
             countryName = itemView.findViewById(R.id.countryName);
@@ -68,17 +62,6 @@ public class GlobalDataAdapter
             countryRecovered = itemView.findViewById(R.id.countryRecovered);
             countryTodayCases = itemView.findViewById(R.id.countryTodayCases);
             countryTodayDeaths = itemView.findViewById(R.id.countryTodayDeaths);
-            onCountryClickListener = listener;
-            itemView.setOnClickListener(this);
         }
-
-        @Override
-        public void onClick(View v) {
-            onCountryClickListener.onCountryClick(countryName.getText());
-        }
-    }
-
-    public interface onCountryClickListener {
-        void onCountryClick(CharSequence countryName);
     }
 }

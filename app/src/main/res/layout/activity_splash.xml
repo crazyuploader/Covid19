@@ -8,8 +8,8 @@
         tools:context="com.github.crazyuploader.covid19.SplashActivity">
 
     <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             app:srcCompat="@drawable/icon"
             android:contentDescription="@string/splash_icon"
             android:id="@+id/splashImageView"
@@ -19,14 +19,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
+            android:id="@+id/splashTextView"
             android:layout_below="@id/splashImageView"
             tools:layout_editor_absoluteY="491dp"
             tools:layout_editor_absoluteX="168dp"
-            android:textSize="50sp"
-            android:layout_marginTop="15dp"
+            android:textSize="28sp"
+            android:layout_marginTop="5dp"
             android:textAllCaps="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="#FFFFFF"/>
+            android:layout_centerHorizontal="true"/>
 
     <TextView
             android:layout_centerHorizontal="true"
