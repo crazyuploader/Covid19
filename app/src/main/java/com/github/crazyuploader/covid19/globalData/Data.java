@@ -18,14 +18,14 @@ public class Data {
     @SerializedName("critical") @Expose private Integer critical;
     @SerializedName("casesPerOneMillion")
     @Expose
-    private Integer casesPerOneMillion;
+    private Double casesPerOneMillion;
     @SerializedName("deathsPerOneMillion")
     @Expose
-    private Integer deathsPerOneMillion;
-    @SerializedName("tests") @Expose private Integer tests;
+    private Double deathsPerOneMillion;
+    @SerializedName("tests") @Expose private Double tests;
     @SerializedName("testsPerOneMillion")
     @Expose
-    private Integer testsPerOneMillion;
+    private Double testsPerOneMillion;
     @SerializedName("continent") @Expose private String continent;
 
     public long getUpdated() { return updated; }
@@ -48,13 +48,13 @@ public class Data {
 
     public Integer getCritical() { return critical; }
 
-    public Integer getCasesPerOneMillion() { return casesPerOneMillion; }
+    public Double getCasesPerOneMillion() { return casesPerOneMillion; }
 
-    public Integer getDeathsPerOneMillion() { return deathsPerOneMillion; }
+    public Double getDeathsPerOneMillion() { return deathsPerOneMillion; }
 
-    public Integer getTests() { return tests; }
+    public Double getTests() { return tests; }
 
-    public Integer getTestsPerOneMillion() { return testsPerOneMillion; }
+    public Double getTestsPerOneMillion() { return testsPerOneMillion; }
 
     public String getContinent() { return continent; }
 }
