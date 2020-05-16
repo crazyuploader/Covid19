@@ -3,15 +3,15 @@ package com.github.crazyuploader.covid19.ui.frags;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.TextView;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import com.github.crazyuploader.covid19.BuildConfig;
+import android.widget.TextView;
+import androidx.fragment.app.Fragment;
 import com.github.crazyuploader.covid19.R;
-import com.github.crazyuploader.covid19.misc.Custom_Toast;
-import com.github.crazyuploader.covid19.ui.MainActivity;
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +26,9 @@ public class AboutMe extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    TextView footer;
+    final String version = BuildConfig.VERSION_NAME;
     final String githubURL = "https://crazyuploader.github.io/";
+    final String description = "Reserved ~";
     public AboutMe() {
         // Required empty public constructor
     }
@@ -61,18 +62,24 @@ public class AboutMe extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_about, container, false);
-        footer = view.findViewById(R.id.footer_main);
-        footer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent =
-                        new Intent(Intent.ACTION_VIEW, Uri.parse(githubURL));
-                startActivity(browserIntent);
-                Custom_Toast.show(getActivity(), "Following me around?", 0);
-            }
-        });
-
-        return view;
+        Element versionElement = new Element();
+        versionElement.setTitle("Version " + version);
+        Element telegram = new Element();
+        telegram.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/choochiye")))
+                .setTitle("Add me on Telegram")
+                .setIconDrawable(R.drawable.ic_telegram);
+        return new AboutPage(getContext())
+                .isRTL(false)
+                .setImage(R.drawable.ic_user)
+                .setDescription(description)
+                .addItem(versionElement)
+                .addGroup("Connect with me")
+                .addEmail("jugalkishor839@gmail.com", "Email")
+                .addWebsite(githubURL, "Website")
+                .addGitHub("crazyuploader", "Follow me on GitHub")
+                .addInstagram("choochiye", "Follow me on Instagram")
+                .addTwitter("choochiye", "Follow me on Twitter")
+                .addItem(telegram)
+                .create();
     }
 }
