@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.github.crazyuploader.covid19.BuildConfig;
-import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.github.crazyuploader.covid19.R;
 import mehdi.sakout.aboutpage.AboutPage;
@@ -22,9 +21,6 @@ public class AboutMe extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
 
     final String version = BuildConfig.VERSION_NAME;
     final String githubURL = "https://crazyuploader.github.io/";
@@ -54,8 +50,8 @@ public class AboutMe extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 

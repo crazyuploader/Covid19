@@ -27,10 +27,10 @@ public class Main2Activity extends AppCompatActivity implements BottomNavigation
     }
 
 
-    GlobalOverview worldOverview = new GlobalOverview();
-    IndianStates indianStates = new IndianStates();
-    AboutMe about = new AboutMe();
-    MapsOverview mapsOverview = new MapsOverview();
+    final GlobalOverview worldOverview = new GlobalOverview();
+    final IndianStates indianStates = new IndianStates();
+    final AboutMe about = new AboutMe();
+    final MapsOverview mapsOverview = new MapsOverview();
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 

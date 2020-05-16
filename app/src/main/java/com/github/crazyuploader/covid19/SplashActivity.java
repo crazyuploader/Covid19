@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.github.crazyuploader.covid19.ui.Main2Activity;
-import com.github.crazyuploader.covid19.ui.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

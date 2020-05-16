@@ -32,7 +32,6 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-                    android:id="@+id/country"
                     android:fontFamily="sans-serif"/>
 
             <TextView
@@ -45,7 +44,6 @@
                     android:layout_marginRight="5dp"
                     android:textSize="22sp"
                     android:layout_marginTop="5dp"
-                    android:id="@+id/countryCases"
                     android:fontFamily="sans-serif"/>
 
             <TextView
@@ -58,7 +56,6 @@
                     android:layout_marginRight="5dp"
                     android:textSize="22sp"
                     android:layout_marginTop="5dp"
-                    android:id="@+id/countryDeaths"
                     android:fontFamily="sans-serif"/>
 
             <TextView
@@ -73,7 +70,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:fontFamily="sans-serif"
-                    android:id="@+id/countryRecoveredPlaceHolder"/>
+            />
 
         </LinearLayout>
 

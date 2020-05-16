@@ -33,9 +33,6 @@ public class GlobalOverview extends Fragment implements GlobalDataAdapter.onCoun
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
-    private String mParam2;
-
     ProgressBar progressBar;
     RecyclerView countryView;
     final String baseURL = "https://disease.sh/v2/countries?sort=cases";
@@ -64,8 +61,8 @@ public class GlobalOverview extends Fragment implements GlobalDataAdapter.onCoun
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
