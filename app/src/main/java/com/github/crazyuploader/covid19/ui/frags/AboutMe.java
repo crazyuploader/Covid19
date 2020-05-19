@@ -61,7 +61,7 @@ public class AboutMe extends Fragment {
         Element versionElement = new Element();
         versionElement.setTitle("Version " + version);
         Element telegram = new Element();
-        telegram.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/choochiye")))
+        telegram.setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/crazyuploader")))
                 .setTitle("Add me on Telegram")
                 .setIconDrawable(R.drawable.ic_telegram);
         return new AboutPage(getContext())
@@ -73,8 +73,9 @@ public class AboutMe extends Fragment {
                 .addEmail("jugalkishor839@gmail.com", "Email")
                 .addWebsite(githubURL, "Website")
                 .addGitHub("crazyuploader", "Follow me on GitHub")
-                .addInstagram("choochiye", "Follow me on Instagram")
-                .addTwitter("choochiye", "Follow me on Twitter")
+                .addFacebook("100051213879144", "Like me on Facebook")
+                .addInstagram("crazyjugal", "Follow me on Instagram")
+                .addTwitter("crazyjugal", "Follow me on Twitter")
                 .addItem(telegram)
                 .create();
     }
