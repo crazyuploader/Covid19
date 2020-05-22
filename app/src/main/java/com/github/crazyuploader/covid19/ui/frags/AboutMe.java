@@ -23,7 +23,7 @@ public class AboutMe extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     final String version = BuildConfig.VERSION_NAME;
-    final String githubURL = "https://crazyuploader.github.io/";
+    final String githubURL = "https://jugalkishore.me/";
     final String description = "Reserved ~";
     public AboutMe() {
         // Required empty public constructor
@@ -73,7 +73,7 @@ public class AboutMe extends Fragment {
                 .addEmail("jugalkishor839@gmail.com", "Email")
                 .addWebsite(githubURL, "Website")
                 .addGitHub("crazyuploader", "Follow me on GitHub")
-                .addFacebook("100051213879144", "Like me on Facebook")
+                .addFacebook("profile.php?id=100051213879144", "Like me on Facebook")
                 .addInstagram("crazyjugal", "Follow me on Instagram")
                 .addTwitter("crazyjugal", "Follow me on Twitter")
                 .addItem(telegram)
