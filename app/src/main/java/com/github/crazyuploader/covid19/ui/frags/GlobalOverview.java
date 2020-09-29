@@ -35,7 +35,7 @@ public class GlobalOverview extends Fragment implements GlobalDataAdapter.onCoun
 
     ProgressBar progressBar;
     RecyclerView countryView;
-    final String baseURL = "https://disease.sh/v2/countries?sort=cases";
+    final String baseURL = "https://disease.sh/v3/countries?sort=cases";
     public GlobalOverview() {
         // Required empty public constructor
     }
