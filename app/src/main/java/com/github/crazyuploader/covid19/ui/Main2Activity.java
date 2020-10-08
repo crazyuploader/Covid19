@@ -11,6 +11,9 @@ import com.github.crazyuploader.covid19.ui.frags.IndianStates;
 import com.github.crazyuploader.covid19.ui.frags.MapsOverview;
 import com.github.crazyuploader.covid19.ui.frags.GlobalOverview;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class Main2Activity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -19,6 +22,8 @@ public class Main2Activity extends AppCompatActivity implements BottomNavigation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        AppCenter.start(getApplication(), "00fd6ff5-6459-43e1-8d46-2a512b249a50",
+                Analytics.class, Crashes.class);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
