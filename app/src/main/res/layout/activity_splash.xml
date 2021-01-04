@@ -63,7 +63,7 @@
         android:layout_marginBottom="66dp"
         android:gravity="bottom"
         android:text="@string/warning"
-        android:textColor="#FF5252"
+        android:textColor="#8BC34A"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
