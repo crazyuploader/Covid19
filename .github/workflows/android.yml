@@ -4,17 +4,16 @@ on: [push, pull_request]
 
 jobs:
   container:
-
     runs-on: ubuntu-latest
     container: crazyuploader/android_sdk:latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build with Gradle
-      run: |
-        ./gradlew build
-    - name: Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: APK
-        path: ./app/build/outputs/apk/debug/app-universal-debug.apk
+      - uses: actions/checkout@v2
+      - name: Build with Gradle
+        run: |
+          ./gradlew build
+      - name: Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: APK
+          path: ./app/build/outputs/apk/debug/app-universal-debug.apk
