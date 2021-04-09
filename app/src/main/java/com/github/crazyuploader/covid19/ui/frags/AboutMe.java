@@ -75,7 +75,7 @@ public class AboutMe extends Fragment {
                 .addGitHub("crazyuploader", "Follow me on GitHub")
                 .addFacebook("profile.php?id=100051213879144", "Like me on Facebook")
                 .addInstagram("crazyjugal", "Follow me on Instagram")
-                .addTwitter("crazyjugal", "Follow me on Twitter")
+                .addTwitter("marsaquariusrye", "Follow me on Twitter")
                 .addItem(telegram)
                 .create();
     }
